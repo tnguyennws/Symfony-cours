@@ -9,33 +9,25 @@ use MesEntity\Post;
 
 class PostController extends AbstractController
 {
-    /**
-     * @Route("/post", name="post")
-     */
-    public function index(): Response
-    {
-        $array =
-        [
-            "Raphael",
-            "Robin",
-            "Antoine",
-            "Nicolas",
-            "Tom"
-        ];
-
-        $mesPosts =
+    public function __construct(){
+        $this->mesPosts =
         [
             new Post(1, 1 , "Hello PHP", "On fait du Symfony"),
             new Post(2, 1 , "Hello C#", "On fait du C#"),
             new Post(3, 1 , "Hello JS", "On fait du JS"),
             new Post(4, 1 , "Hello", "On fait du CodeCombat"),
         ];
+    }
 
+    /**
+     * @Route("/post", name="post")
+     */
+    public function index(): Response
+    {
         return $this->render('post/index.html.twig',
         [
             'controller_name' => 'PostController',
-            'personnes' => $array,
-            'mesPosts' => $mesPosts
+            'mesPosts' => $this->mesPosts
         ]);
     }
 
@@ -44,17 +36,9 @@ class PostController extends AbstractController
      */
     public function post($id): Response
     {
-        $mesPosts =
-        [
-            new Post(1, 1 , "Hello PHP", "On fait du Symfony"),
-            new Post(2, 1 , "Hello C#", "On fait du C#"),
-            new Post(3, 1 , "Hello JS", "On fait du JS"),
-            new Post(4, 1 , "Hello", "On fait du CodeCombat"),
-        ];
-
         return $this->render('post/post.html.twig', [
             'controller_name' => 'PostController',
-            'mesPosts' => $mesPosts,
+            'mesPosts' => $this->mesPosts,
             'id' => $id - 1
         ]);
     }
