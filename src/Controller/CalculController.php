@@ -23,7 +23,7 @@ class CalculController extends AbstractController
      */
     public function addition($number1, $number2): Response
     {
-        if(!is_int($number1) || !is_int($number2)){
+        if(!is_numeric($number1) || !is_numeric($number2)){
             return $this->render('calcul/erreur.html.twig', [
                 
             ]);
@@ -41,11 +41,17 @@ class CalculController extends AbstractController
      */
     public function soustraction($number1, $number2): Response
     {
-        return $this->render('calcul/soustraction.html.twig', [
-            'number1' => $number1,
-            'number2' => $number2,
-            'result' => $number1 - $number2,
-        ]);
+        if(!is_numeric($number1) || !is_numeric($number2)){
+            return $this->render('calcul/erreur.html.twig', [
+                
+            ]);
+        }else{
+            return $this->render('calcul/soustraction.html.twig', [
+                'number1' => $number1,
+                'number2' => $number2,
+                'result' => $number1 - $number2,
+            ]);
+        }
     }
 
     /**
@@ -53,11 +59,17 @@ class CalculController extends AbstractController
      */
     public function multiplication($number1, $number2): Response
     {
-        return $this->render('calcul/multiplication.html.twig', [
-            'number1' => $number1,
-            'number2' => $number2,
-            'result' => $number1 * $number2,
-        ]);
+        if(!is_numeric($number1) || !is_numeric($number2)){
+            return $this->render('calcul/erreur.html.twig', [
+                
+            ]);
+        }else{
+            return $this->render('calcul/multiplication.html.twig', [
+                'number1' => $number1,
+                'number2' => $number2,
+                'result' => $number1 * $number2,
+            ]);
+        }
     }
 
     /**
@@ -65,11 +77,17 @@ class CalculController extends AbstractController
      */
     public function division($number1, $number2): Response
     {
-        return $this->render('calcul/division.html.twig', [
-            'number1' => $number1,
-            'number2' => $number2,
-            'result' => $number1 / $number2,
-        ]);
+        if(!is_numeric($number1) || !is_numeric($number2)){
+            return $this->render('calcul/erreur.html.twig', [
+                
+            ]);
+        }else{
+            return $this->render('calcul/division.html.twig', [
+                'number1' => $number1,
+                'number2' => $number2,
+                'result' => $number1 / $number2,
+            ]);
+        }
     }
 
     /**
@@ -77,11 +95,17 @@ class CalculController extends AbstractController
      */
     public function modulo($number1, $number2): Response
     {
-        return $this->render('calcul/modulo.html.twig', [
-            'number1' => $number1,
-            'number2' => $number2,
-            'result' => $number1 % $number2,
-        ]);
+        if(!is_numeric($number1) || !is_numeric($number2)){
+            return $this->render('calcul/erreur.html.twig', [
+                
+            ]);
+        }else{
+            return $this->render('calcul/modulo.html.twig', [
+                'number1' => $number1,
+                'number2' => $number2,
+                'result' => $number1 % $number2,
+            ]);
+        }
     }
 
 
