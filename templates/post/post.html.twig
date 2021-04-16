@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello voici le post {{mesPosts[id]}}!{% endblock %}
+{% block title %}Hello voici le post {{id}}!{% endblock %}
 
 {% block body %}
 <style>
@@ -10,8 +10,8 @@
 
 <div class="example-wrapper">
 
-    <h1>{{ mesPosts[id].title }}</h1>
-    <p>{{ mesPosts[id].body }}</p>
+    <h1>{{ mesPosts.title }}</h1>
+    <p>{{ mesPosts.body }}</p>
 
 </div>
 {% endblock %}

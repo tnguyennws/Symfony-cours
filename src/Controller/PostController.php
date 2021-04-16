@@ -38,8 +38,8 @@ class PostController extends AbstractController
     {
         return $this->render('post/post.html.twig', [
             'controller_name' => 'PostController',
-            'mesPosts' => $this->mesPosts,
-            'id' => $id - 1
+            'mesPosts' => $this->mesPosts[$id - 1],
+            'id' => $id
         ]);
     }
 }
